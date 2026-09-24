@@ -38,7 +38,7 @@ Playful neo-brutalist: thick black borders, hard offset shadows, big chunky head
 - Location: Vietnam
 
 ## Still needed (placeholders in [BRACKETS])
-- [EMAIL]
+- ~~[EMAIL]~~ ryannguyen101209@gmail.com (done)
 - 2–3 real project screenshots (mockups for now)
 - Optional client testimonial
 - Vietnamese copy (recommended: Vietnamese first, English toggle)
