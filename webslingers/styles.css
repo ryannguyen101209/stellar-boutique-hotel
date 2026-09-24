@@ -66,7 +66,7 @@ a { color: inherit; }
 .btn-dark:hover { box-shadow: 8px 8px 0 var(--red); }
 .btn-light:hover { box-shadow: 8px 8px 0 var(--ink); }
 .btn:active { transform: translate(4px, 4px); box-shadow: 2px 2px 0 var(--ink); }
-.btn-sm { min-height: 44px; padding: .5rem 1rem; font-size: .8rem; box-shadow: 4px 4px 0 var(--red); }
+.btn-sm { min-height: 44px; padding: .5rem .85rem; font-size: .8rem; box-shadow: 4px 4px 0 var(--red); }
 
 /* Nav */
 .nav { border-bottom: var(--border); background: var(--cream); position: sticky; top: 0; z-index: 50; }
@@ -75,7 +75,7 @@ a { color: inherit; }
   gap: .5rem 1rem; padding-top: .75rem; padding-bottom: .75rem;
 }
 .logo {
-  font-family: var(--head); font-weight: 900; font-size: 1rem;
+  font-family: var(--head); font-weight: 900; font-size: clamp(.85rem, 4vw, 1rem);
   text-decoration: none; letter-spacing: -.01em;
 }
 .logo span { background: var(--gold); padding: 0 .2em; border-radius: 4px; }
@@ -167,7 +167,15 @@ a { color: inherit; }
 .shot-1 { background: #ffd9d4; }
 .shot-2 { background: #d8f0e6; }
 .shot-3 { background: #dfe4ff; }
+.shot img { display: block; flex: 1; min-height: 0; width: 100%; object-fit: cover; object-position: top; }
 .project-info { padding: 1rem 1.25rem 1.25rem; }
+.project { position: relative; transition: transform .12s ease, box-shadow .12s ease; }
+.project h3 a { text-decoration: none; }
+.project h3 a::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+.project h3 a:focus-visible { outline: none; box-shadow: none; }
+.project:has(a:hover) { transform: translate(-3px, -3px); box-shadow: 11px 11px 0 var(--ink); }
+.project:has(a:focus-visible) { outline: 3px solid var(--ink); outline-offset: 4px; box-shadow: var(--shadow), 0 0 0 9px var(--red); }
+.project-cta { display: inline-block; margin-top: .6rem; font-family: var(--head); font-weight: 700; font-size: .8rem; border-bottom: 3px solid var(--red); }
 .project-info p { font-weight: 600; margin-top: .25rem; }
 .quote { margin: 2.5rem 0 0; padding: 1.5rem; font-size: 1.15rem; font-weight: 600; }
 .quote cite { display: block; margin-top: .75rem; font-style: normal; font-weight: 800; }
