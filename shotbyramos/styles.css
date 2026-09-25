@@ -168,6 +168,7 @@ h1, h2 { margin: 0; }
   font-family: var(--font-hand);
   font-size: 1rem;
   color: var(--ink-soft);
+  transform: rotate(var(--crot, 0deg));
 }
 
 .tape {
@@ -179,13 +180,21 @@ h1, h2 { margin: 0; }
 .tape--top {
   width: 54px; height: 20px;
   top: -10px; left: 50%;
-  transform: translateX(-50%) rotate(-3deg);
+  transform: translateX(-50%) rotate(var(--trot, -3deg));
 }
 
 .tape--corner {
   width: 46px; height: 18px;
   top: -8px; right: -6px;
-  transform: rotate(35deg);
+  transform: rotate(var(--trot, 35deg));
+}
+
+.paperclip {
+  position: absolute;
+  top: -16px;
+  left: 14px;
+  transform: rotate(-8deg);
+  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.25));
 }
 
 /* ---------- Reel sections (torn paper) ---------- */
@@ -249,26 +258,27 @@ h1, h2 { margin: 0; }
 .polaroid-cluster .polaroid--offset-r {
   width: 30%;
   max-width: 170px;
-  margin-left: -2.5rem;
-  margin-top: 3rem;
+  margin-left: -3.75rem;
+  margin-top: 3.75rem;
   z-index: 1;
 }
 
 .polaroid-cluster .polaroid--offset-r2 {
   width: 26%;
   max-width: 150px;
-  margin-left: -2rem;
-  margin-top: -3.5rem;
+  margin-left: -3.25rem;
+  margin-top: -4.5rem;
   z-index: 3;
 }
 
-.polaroid-cluster--alt .polaroid--offset-r { margin-top: -3rem; }
-.polaroid-cluster--alt .polaroid--offset-r2 { margin-top: 3.5rem; }
+.polaroid-cluster--alt .polaroid--offset-r { margin-top: -3.75rem; }
+.polaroid-cluster--alt .polaroid--offset-r2 { margin-top: 4.5rem; }
 
 .filmstrip {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.35rem;
   flex-wrap: wrap;
 }
 
@@ -280,7 +290,10 @@ h1, h2 { margin: 0; }
   border: 3px solid var(--cream);
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   border-radius: 2px;
+  transform: rotate(var(--rot, 0deg));
 }
+
+.filmstrip-frame:nth-child(even) { transform: rotate(var(--rot, 0deg)) translateY(6px); }
 
 .and-more {
   display: flex;
@@ -312,6 +325,17 @@ h1, h2 { margin: 0; }
   filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
 }
 
+.sticker--heart {
+  color: #c96070;
+  font-size: 1.4rem;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+}
+
+.sticker--x {
+  color: var(--accent);
+  opacity: 0.8;
+}
+
 .sticker--pin {
   position: relative;
   display: inline-block;
@@ -328,6 +352,29 @@ h1, h2 { margin: 0; }
   position: static;
   display: inline-block;
   margin-top: 1.5rem;
+}
+
+.pin-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.doodle-circle {
+  position: absolute;
+  inset: -14px -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 28px);
+  color: var(--accent);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.doodle-arrow {
+  display: block;
+  margin: 0.5rem auto 0.25rem;
+  color: var(--ink-soft);
+  transform: rotate(4deg);
 }
 
 /* ---------- About ---------- */

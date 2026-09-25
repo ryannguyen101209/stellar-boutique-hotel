@@ -7,10 +7,17 @@
 <meta name="description" content="Ramos — photographer based between the Philippines and Hong Kong. Portraits, street, travel and editorial work.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@500;700&family=Permanent+Marker&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="ic-arrow" viewBox="0 0 60 40"><path d="M2 4 Q20 2 30 20 Q36 32 55 30 M55 30 L45 26 M55 30 L48 37" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-circle" viewBox="0 0 120 60"><path d="M14 30 C10 12, 40 4, 60 5 C95 6, 112 20, 108 34 C104 50, 68 56, 40 52 C18 49, 8 40, 14 30 Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></symbol>
+  <symbol id="ic-paperclip" viewBox="0 0 24 40"><path d="M17 6v20a5 5 0 0 1-10 0V9a3 3 0 0 1 6 0v16a1 1 0 0 1-2 0V10" fill="none" stroke="#8a8a8a" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="ic-x" viewBox="0 0 20 20"><path d="M3 3 L17 17 M17 3 L3 17" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+</svg>
 
 <div class="page" id="top">
 
@@ -36,25 +43,29 @@
   </header>
 
   <section class="hero">
+    <span class="sticker sticker--x" style="--x:14%; --y:22%; --rot:-18deg;"><svg width="18" height="18"><use href="#ic-x"/></svg></span>
+    <span class="sticker sticker--heart" style="--x:88%; --y:16%; --rot:12deg;">♥</span>
+
     <p class="hero-kicker">Photographer</p>
     <h1 class="hero-title">RAMOS</h1>
     <svg class="hero-scribble" viewBox="0 0 300 24" preserveAspectRatio="none"><path d="M2 14 Q40 2 80 14 T160 14 T240 14 T298 10" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
     <p class="hero-sub">Philippines × Hong Kong — portraits, street &amp; travel stories.</p>
 
     <div class="hero-stack">
-      <figure class="polaroid" style="--rot:-7deg; --grad: linear-gradient(155deg,#2b2622,#6b5a4a 55%,#c9a87c);">
-        <span class="tape tape--top"></span>
+      <figure class="polaroid" style="--rot:-14deg; --grad: linear-gradient(155deg,#2b2622,#6b5a4a 55%,#c9a87c);">
+        <span class="tape tape--top" style="--trot:-8deg;"></span>
       </figure>
-      <figure class="polaroid polaroid--front" style="--rot:3deg; --grad: linear-gradient(155deg,#1c2430,#3a4a5c 55%,#8fa6b8);">
-        <span class="tape tape--top"></span>
-        <figcaption>hong kong, 2025</figcaption>
+      <figure class="polaroid polaroid--front" style="--rot:6deg; --grad: linear-gradient(155deg,#1c2430,#3a4a5c 55%,#8fa6b8);">
+        <svg class="paperclip" width="18" height="30"><use href="#ic-paperclip"/></svg>
+        <figcaption style="--crot:-2deg;">hong kong, 2025</figcaption>
       </figure>
-      <figure class="polaroid" style="--rot:8deg; --grad: linear-gradient(155deg,#2e1f1a,#7a4a30 55%,#e3a860);">
-        <span class="tape tape--top"></span>
+      <figure class="polaroid" style="--rot:16deg; --grad: linear-gradient(155deg,#2e1f1a,#7a4a30 55%,#e3a860);">
+        <span class="tape tape--top" style="--trot:6deg;"></span>
       </figure>
     </div>
 
-    <a href="#work" class="scroll-cue">↓ scroll the notebook</a>
+    <svg class="doodle-arrow" width="50" height="34"><use href="#ic-arrow"/></svg>
+    <a href="#work" class="scroll-cue">scroll the notebook</a>
   </section>
 
   <section class="intro">
@@ -63,110 +74,123 @@
       Ramos shoots quiet, honest moments: candid portraits, city streets at golden hour,
       and the in-between scenes most people scroll past.
     </p>
-    <span class="sticker sticker--pin" aria-hidden="true">📍PH × HK</span>
+    <span class="pin-wrap">
+      <svg class="doodle-circle" viewBox="0 0 120 60"><use href="#ic-circle"/></svg>
+      <span class="sticker sticker--pin" aria-hidden="true">📍PH × HK</span>
+    </span>
   </section>
 
   <main id="work">
 
     <section class="reel reel--rust">
-      <span class="sticker sticker--star" style="--x:8%; --y:14%; --rot:-12deg;">★</span>
-      <span class="sticker sticker--star" style="--x:90%; --y:70%; --rot:10deg;">★</span>
-      <div class="reel-tag" style="--rot:-3deg;">Portraits</div>
+      <span class="sticker sticker--star" style="--x:8%; --y:12%; --rot:-16deg;">★</span>
+      <span class="sticker sticker--star" style="--x:92%; --y:66%; --rot:10deg;">★</span>
+      <span class="sticker sticker--heart" style="--x:82%; --y:8%; --rot:-8deg;">♥</span>
+      <span class="sticker sticker--x" style="--x:6%; --y:80%; --rot:14deg;"><svg width="16" height="16"><use href="#ic-x"/></svg></span>
+      <div class="reel-tag" style="--rot:-7deg;">Portraits</div>
 
       <div class="polaroid-cluster">
-        <figure class="polaroid polaroid--big" style="--rot:-4deg; --grad: linear-gradient(155deg,#2b2622,#6b5a4a 55%,#c9a87c);">
-          <span class="tape tape--top"></span>
-          <figcaption>close &amp; unposed</figcaption>
+        <figure class="polaroid polaroid--big" style="--rot:-9deg; --grad: linear-gradient(155deg,#2b2622,#6b5a4a 55%,#c9a87c);">
+          <span class="tape tape--top" style="--trot:-6deg;"></span>
+          <span class="tape tape--corner" style="--trot:38deg;"></span>
+          <figcaption style="--crot:-3deg;">close &amp; unposed</figcaption>
         </figure>
-        <figure class="polaroid polaroid--offset-r" style="--rot:6deg; --grad: linear-gradient(155deg,#241826,#5c3a54 55%,#c98fa8);">
-          <span class="tape tape--corner"></span>
-          <figcaption>central, hk</figcaption>
+        <figure class="polaroid polaroid--offset-r" style="--rot:13deg; --grad: linear-gradient(155deg,#241826,#5c3a54 55%,#c98fa8);">
+          <svg class="paperclip" width="16" height="26"><use href="#ic-paperclip"/></svg>
+          <figcaption style="--crot:4deg;">central, hk</figcaption>
         </figure>
-        <figure class="polaroid polaroid--offset-r2" style="--rot:-8deg; --grad: linear-gradient(160deg,#1d1a17,#4a4038 50%,#a8967c);">
-          <span class="tape tape--corner"></span>
-          <figcaption>manila</figcaption>
+        <figure class="polaroid polaroid--offset-r2" style="--rot:-17deg; --grad: linear-gradient(160deg,#1d1a17,#4a4038 50%,#a8967c);">
+          <span class="tape tape--corner" style="--trot:-30deg;"></span>
+          <figcaption style="--crot:-5deg;">manila</figcaption>
         </figure>
       </div>
 
       <div class="filmstrip">
-        <div class="filmstrip-frame" style="--grad: linear-gradient(155deg,#2b2622,#6b5a4a 55%,#c9a87c);"></div>
-        <div class="filmstrip-frame" style="--grad: linear-gradient(155deg,#241826,#5c3a54 55%,#c98fa8);"></div>
-        <div class="filmstrip-frame" style="--grad: linear-gradient(160deg,#1d1a17,#4a4038 50%,#a8967c);"></div>
-        <div class="filmstrip-frame" style="--grad: linear-gradient(155deg,#332018,#7a5a3a 55%,#d9b47c);"></div>
+        <div class="filmstrip-frame" style="--rot:-6deg; --grad: linear-gradient(155deg,#2b2622,#6b5a4a 55%,#c9a87c);"></div>
+        <div class="filmstrip-frame" style="--rot:8deg; --grad: linear-gradient(155deg,#241826,#5c3a54 55%,#c98fa8);"></div>
+        <div class="filmstrip-frame" style="--rot:-4deg; --grad: linear-gradient(160deg,#1d1a17,#4a4038 50%,#a8967c);"></div>
+        <div class="filmstrip-frame" style="--rot:10deg; --grad: linear-gradient(155deg,#332018,#7a5a3a 55%,#d9b47c);"></div>
       </div>
     </section>
 
     <section class="reel reel--denim">
-      <span class="sticker sticker--star" style="--x:88%; --y:10%; --rot:14deg;">★</span>
-      <div class="reel-tag" style="--rot:2deg;">Street</div>
+      <span class="sticker sticker--star" style="--x:88%; --y:8%; --rot:18deg;">★</span>
+      <span class="sticker sticker--star" style="--x:8%; --y:72%; --rot:-12deg;">★</span>
+      <span class="sticker sticker--heart" style="--x:14%; --y:18%; --rot:10deg;">♥</span>
+      <div class="reel-tag" style="--rot:5deg;">Street</div>
 
       <div class="polaroid-cluster polaroid-cluster--alt">
-        <figure class="polaroid polaroid--big" style="--rot:5deg; --grad: linear-gradient(155deg,#1c2430,#3a4a5c 55%,#8fa6b8);">
-          <span class="tape tape--top"></span>
-          <figcaption>mong kok</figcaption>
+        <figure class="polaroid polaroid--big" style="--rot:11deg; --grad: linear-gradient(155deg,#1c2430,#3a4a5c 55%,#8fa6b8);">
+          <span class="tape tape--top" style="--trot:5deg;"></span>
+          <span class="tape tape--corner" style="--trot:-32deg;"></span>
+          <figcaption style="--crot:3deg;">mong kok</figcaption>
         </figure>
-        <figure class="polaroid polaroid--offset-r" style="--rot:-6deg; --grad: linear-gradient(155deg,#1a1a1a,#4a4a4a 55%,#9a9a9a);">
-          <span class="tape tape--corner"></span>
-          <figcaption>cebu</figcaption>
+        <figure class="polaroid polaroid--offset-r" style="--rot:-14deg; --grad: linear-gradient(155deg,#1a1a1a,#4a4a4a 55%,#9a9a9a);">
+          <svg class="paperclip" width="16" height="26"><use href="#ic-paperclip"/></svg>
+          <figcaption style="--crot:-4deg;">cebu</figcaption>
         </figure>
-        <figure class="polaroid polaroid--offset-r2" style="--rot:9deg; --grad: linear-gradient(155deg,#122024,#2f5058 55%,#7fb3ad);">
-          <span class="tape tape--corner"></span>
-          <figcaption>tsim sha tsui</figcaption>
+        <figure class="polaroid polaroid--offset-r2" style="--rot:17deg; --grad: linear-gradient(155deg,#122024,#2f5058 55%,#7fb3ad);">
+          <span class="tape tape--corner" style="--trot:40deg;"></span>
+          <figcaption style="--crot:5deg;">tsim sha tsui</figcaption>
         </figure>
       </div>
 
       <div class="filmstrip">
-        <div class="filmstrip-frame" style="--grad: linear-gradient(155deg,#1c2430,#3a4a5c 55%,#8fa6b8);"></div>
-        <div class="filmstrip-frame" style="--grad: linear-gradient(155deg,#1a1a1a,#4a4a4a 55%,#9a9a9a);"></div>
-        <div class="filmstrip-frame" style="--grad: linear-gradient(155deg,#122024,#2f5058 55%,#7fb3ad);"></div>
-        <div class="filmstrip-frame" style="--grad: linear-gradient(155deg,#0f1c2a,#2a3f52 55%,#6a90a8);"></div>
+        <div class="filmstrip-frame" style="--rot:7deg; --grad: linear-gradient(155deg,#1c2430,#3a4a5c 55%,#8fa6b8);"></div>
+        <div class="filmstrip-frame" style="--rot:-9deg; --grad: linear-gradient(155deg,#1a1a1a,#4a4a4a 55%,#9a9a9a);"></div>
+        <div class="filmstrip-frame" style="--rot:5deg; --grad: linear-gradient(155deg,#122024,#2f5058 55%,#7fb3ad);"></div>
+        <div class="filmstrip-frame" style="--rot:-7deg; --grad: linear-gradient(155deg,#0f1c2a,#2a3f52 55%,#6a90a8);"></div>
       </div>
     </section>
 
     <section class="reel reel--grape">
-      <span class="sticker sticker--star" style="--x:10%; --y:78%; --rot:-8deg;">★</span>
-      <span class="sticker sticker--star" style="--x:85%; --y:20%; --rot:16deg;">★</span>
-      <div class="reel-tag" style="--rot:-2deg;">Travel</div>
+      <span class="sticker sticker--star" style="--x:10%; --y:76%; --rot:-11deg;">★</span>
+      <span class="sticker sticker--star" style="--x:85%; --y:18%; --rot:19deg;">★</span>
+      <span class="sticker sticker--x" style="--x:90%; --y:70%; --rot:-10deg;"><svg width="16" height="16"><use href="#ic-x"/></svg></span>
+      <div class="reel-tag" style="--rot:-6deg;">Travel</div>
 
       <div class="polaroid-cluster">
-        <figure class="polaroid polaroid--big" style="--rot:-5deg; --grad: linear-gradient(155deg,#2e1f1a,#7a4a30 55%,#e3a860);">
-          <span class="tape tape--top"></span>
-          <figcaption>palawan</figcaption>
+        <figure class="polaroid polaroid--big" style="--rot:-12deg; --grad: linear-gradient(155deg,#2e1f1a,#7a4a30 55%,#e3a860);">
+          <span class="tape tape--top" style="--trot:-4deg;"></span>
+          <span class="tape tape--corner" style="--trot:35deg;"></span>
+          <figcaption style="--crot:-3deg;">palawan</figcaption>
         </figure>
-        <figure class="polaroid polaroid--offset-r" style="--rot:7deg; --grad: linear-gradient(155deg,#122024,#2f5058 55%,#7fb3ad);">
-          <span class="tape tape--corner"></span>
-          <figcaption>siargao</figcaption>
+        <figure class="polaroid polaroid--offset-r" style="--rot:15deg; --grad: linear-gradient(155deg,#122024,#2f5058 55%,#7fb3ad);">
+          <svg class="paperclip" width="16" height="26"><use href="#ic-paperclip"/></svg>
+          <figcaption style="--crot:4deg;">siargao</figcaption>
         </figure>
-        <figure class="polaroid polaroid--offset-r2" style="--rot:-10deg; --grad: linear-gradient(155deg,#332018,#7a5a3a 55%,#d9b47c);">
-          <span class="tape tape--corner"></span>
-          <figcaption>boracay</figcaption>
+        <figure class="polaroid polaroid--offset-r2" style="--rot:-18deg; --grad: linear-gradient(155deg,#332018,#7a5a3a 55%,#d9b47c);">
+          <span class="tape tape--corner" style="--trot:-28deg;"></span>
+          <figcaption style="--crot:-5deg;">boracay</figcaption>
         </figure>
       </div>
 
       <div class="filmstrip">
-        <div class="filmstrip-frame" style="--grad: linear-gradient(155deg,#2e1f1a,#7a4a30 55%,#e3a860);"></div>
-        <div class="filmstrip-frame" style="--grad: linear-gradient(155deg,#122024,#2f5058 55%,#7fb3ad);"></div>
-        <div class="filmstrip-frame" style="--grad: linear-gradient(155deg,#332018,#7a5a3a 55%,#d9b47c);"></div>
-        <div class="filmstrip-frame" style="--grad: linear-gradient(155deg,#241826,#5c3a54 55%,#c98fa8);"></div>
+        <div class="filmstrip-frame" style="--rot:-8deg; --grad: linear-gradient(155deg,#2e1f1a,#7a4a30 55%,#e3a860);"></div>
+        <div class="filmstrip-frame" style="--rot:6deg; --grad: linear-gradient(155deg,#122024,#2f5058 55%,#7fb3ad);"></div>
+        <div class="filmstrip-frame" style="--rot:-5deg; --grad: linear-gradient(155deg,#332018,#7a5a3a 55%,#d9b47c);"></div>
+        <div class="filmstrip-frame" style="--rot:9deg; --grad: linear-gradient(155deg,#241826,#5c3a54 55%,#c98fa8);"></div>
       </div>
     </section>
 
     <section class="reel reel--olive">
-      <span class="sticker sticker--star" style="--x:92%; --y:65%; --rot:-14deg;">★</span>
-      <div class="reel-tag" style="--rot:3deg;">Editorial</div>
+      <span class="sticker sticker--star" style="--x:92%; --y:62%; --rot:-17deg;">★</span>
+      <span class="sticker sticker--heart" style="--x:8%; --y:16%; --rot:11deg;">♥</span>
+      <div class="reel-tag" style="--rot:6deg;">Editorial</div>
 
       <div class="polaroid-cluster polaroid-cluster--alt">
-        <figure class="polaroid polaroid--big" style="--rot:4deg; --grad: linear-gradient(120deg,#20201c,#5a5648 45%,#b9ad8f);">
-          <span class="tape tape--top"></span>
-          <figcaption>manila</figcaption>
+        <figure class="polaroid polaroid--big" style="--rot:10deg; --grad: linear-gradient(120deg,#20201c,#5a5648 45%,#b9ad8f);">
+          <span class="tape tape--top" style="--trot:6deg;"></span>
+          <span class="tape tape--corner" style="--trot:-36deg;"></span>
+          <figcaption style="--crot:3deg;">manila</figcaption>
         </figure>
-        <figure class="polaroid polaroid--offset-r" style="--rot:-7deg; --grad: linear-gradient(120deg,#20161c,#5c3040 45%,#c97088);">
-          <span class="tape tape--corner"></span>
-          <figcaption>tsim sha tsui</figcaption>
+        <figure class="polaroid polaroid--offset-r" style="--rot:-15deg; --grad: linear-gradient(120deg,#20161c,#5c3040 45%,#c97088);">
+          <svg class="paperclip" width="16" height="26"><use href="#ic-paperclip"/></svg>
+          <figcaption style="--crot:-4deg;">tsim sha tsui</figcaption>
         </figure>
-        <figure class="polaroid polaroid--offset-r2" style="--rot:8deg; --grad: linear-gradient(155deg,#2b2622,#6b5a4a 55%,#c9a87c);">
-          <span class="tape tape--corner"></span>
-          <figcaption>hong kong</figcaption>
+        <figure class="polaroid polaroid--offset-r2" style="--rot:18deg; --grad: linear-gradient(155deg,#2b2622,#6b5a4a 55%,#c9a87c);">
+          <span class="tape tape--corner" style="--trot:32deg;"></span>
+          <figcaption style="--crot:5deg;">hong kong</figcaption>
         </figure>
       </div>
 
@@ -180,13 +204,16 @@
   </main>
 
   <section class="about" id="about">
-    <figure class="polaroid polaroid--about" style="--rot:-4deg; --grad: linear-gradient(160deg,#1d1a17,#4a4038 50%,#a8967c);">
-      <span class="tape tape--top"></span>
-      <figcaption>behind the lens</figcaption>
+    <figure class="polaroid polaroid--about" style="--rot:-9deg; --grad: linear-gradient(160deg,#1d1a17,#4a4038 50%,#a8967c);">
+      <svg class="paperclip" width="18" height="30"><use href="#ic-paperclip"/></svg>
+      <figcaption style="--crot:-3deg;">behind the lens</figcaption>
     </figure>
 
     <div class="about-note">
-      <span class="sticker sticker--pin" aria-hidden="true">📌</span>
+      <span class="pin-wrap">
+        <svg class="doodle-circle" viewBox="0 0 120 60"><use href="#ic-circle"/></svg>
+        <span class="sticker sticker--pin" aria-hidden="true">📌 taped in</span>
+      </span>
       <h2>About</h2>
       <p>
         I'm Ramos — a photographer splitting time between the Philippines and Hong Kong.
@@ -204,8 +231,10 @@
   </section>
 
   <section class="contact" id="contact">
-    <span class="sticker sticker--star" style="--x:12%; --y:20%; --rot:-10deg;">★</span>
-    <span class="sticker sticker--star" style="--x:88%; --y:75%; --rot:14deg;">★</span>
+    <span class="sticker sticker--star" style="--x:12%; --y:18%; --rot:-14deg;">★</span>
+    <span class="sticker sticker--star" style="--x:88%; --y:78%; --rot:17deg;">★</span>
+    <span class="sticker sticker--heart" style="--x:85%; --y:15%; --rot:-9deg;">♥</span>
+    <span class="sticker sticker--x" style="--x:10%; --y:80%; --rot:12deg;"><svg width="16" height="16"><use href="#ic-x"/></svg></span>
     <h2>Let's shoot</h2>
     <p>Based in Manila &amp; Hong Kong — open to travel worldwide.</p>
     <a href="mailto:hello@shotbyramos.com" class="contact-email">hello@shotbyramos.com</a>
