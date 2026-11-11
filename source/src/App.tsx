@@ -271,7 +271,7 @@ export default function App() {
         <section id="about" className="pad">
           <div className="wrap about-grid">
             <div className="about-photo reveal">
-              <img src={arches} alt={t.about.alt} width={780} height={460} loading="lazy" />
+              <img src={facade} alt={t.hero.alt} width={1400} height={1050} loading="lazy" />
             </div>
             <div className="about-body">
               <span className="eyebrow reveal">{t.about.eyebrow}</span>
