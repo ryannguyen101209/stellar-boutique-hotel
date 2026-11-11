@@ -4,12 +4,20 @@ import { COPY, type Lang } from './copy'
 
 const PHONE = '0916 607 555'
 const PHONE_HREF = 'tel:0916607555'
-const EMAIL = 'sabinaresident@gmail.com'
+const EMAIL = 'stellarhotel.signature@gmail.com'
 const FACEBOOK = 'https://www.facebook.com/hotelstellarboutique/'
-const COORDS = '10.731908,106.7097682'
-const MAP_SRC = `https://www.google.com/maps?q=${COORDS}&z=16&output=embed`
-const MAP_DIRECTIONS = `https://www.google.com/maps/dir/?api=1&destination=${COORDS}`
-const ROOM_COUNT = 4
+const ADDRESS_Q = encodeURIComponent('04-06 Nội Khu Hưng Gia 3, Tân Phong, Quận 7, Hồ Chí Minh')
+const MAP_SRC = `https://www.google.com/maps?q=${ADDRESS_Q}&z=16&output=embed`
+const MAP_DIRECTIONS = `https://www.google.com/maps/dir/?api=1&destination=${ADDRESS_Q}`
+
+/* From the hotel's rate sheet, effective 01/11/2026, VAT included (VND per night). */
+const ROOMS = [
+  { name: 'Superior Room', size: 18, withBf: 710000, noBf: 650000 },
+  { name: 'Deluxe Room', size: 30, withBf: 810000, noBf: 750000 },
+  { name: 'Deluxe Executive', size: 30, withBf: 860000, noBf: 800000 },
+  { name: 'Twin Room', size: 30, withBf: 950000, noBf: 890000 },
+]
+const money = (n: number, lang: Lang) => (lang === 'vi' ? `${n.toLocaleString('vi-VN')} ₫` : `${n.toLocaleString('en-US')} VND`)
 
 /* The hotel's four-point star, traced from the supplied logo file. */
 function Star({ className }: { className?: string }) {
@@ -100,6 +108,7 @@ export default function App() {
   const [checkout, setCheckout] = useState('')
   const [guests, setGuests] = useState('2')
   const [room, setRoom] = useState('')
+  const [breakfast, setBreakfast] = useState(true)
   const [errors, setErrors] = useState<Record<string, boolean>>({})
   const [status, setStatus] = useState<{ kind: 'ok' | 'err'; msg: string } | null>(null)
   const nameRef = useRef<HTMLInputElement>(null)
@@ -286,12 +295,18 @@ export default function App() {
               <h2 className="h-display reveal" style={{ ['--d' as string]: '60ms' }}>{t.rooms.h2a} <em>{t.rooms.h2b}</em></h2>
               <p className="reveal" style={{ ['--d' as string]: '120ms' }}>{t.rooms.lede}</p>
             </div>
-            <p className="rooms-note reveal">{t.rooms.note}</p>
+            <div className="rooms-side reveal">
+              <div className="seg" role="group" aria-label={t.rooms.bfLabel}>
+                <button aria-pressed={breakfast} onClick={() => setBreakfast(true)}>{t.rooms.bfOn}</button>
+                <button aria-pressed={!breakfast} onClick={() => setBreakfast(false)}>{t.rooms.bfOff}</button>
+              </div>
+              <p className="rooms-note">{t.rooms.note}</p>
+            </div>
           </div>
           <div className="rooms-track" tabIndex={0} aria-label={t.rooms.eyebrow}>
-            {Array.from({ length: ROOM_COUNT }, (_, i) => {
+            {ROOMS.map((r, i) => {
               const n = String(i + 1).padStart(2, '0')
-              const name = `${t.rooms.name} ${n}`
+              const name = r.name
               return (
                 <article key={n} className="room">
                   <div className="room-img ph">
@@ -301,10 +316,11 @@ export default function App() {
                   </div>
                   <div className="room-body">
                     <h3>{name}</h3>
-                    <p className="room-spec">{t.rooms.spec}</p>
+                    <p className="room-spec">{r.size} m² · <span className="ph-text">{t.rooms.specPh}</span></p>
                     <div className="room-price">
-                      <b>{t.rooms.price}</b><small>{t.rooms.night}</small>
+                      <b>{money(breakfast ? r.withBf : r.noBf, lang)}</b><small>{t.rooms.night}</small>
                     </div>
+                    <p className="room-vat">{breakfast ? t.rooms.bfOn : t.rooms.bfOff} · {t.rooms.vat}</p>
                     <a href="#reserve" className="btn btn-line btn-block" onClick={() => askRoom(name)}>{t.rooms.ask}</a>
                   </div>
                 </article>
@@ -404,10 +420,7 @@ export default function App() {
                   <label htmlFor="f-room">{t.form.room}</label>
                   <select id="f-room" value={room} onChange={(e) => setRoom(e.target.value)}>
                     <option value="">{t.form.anyRoom}</option>
-                    {Array.from({ length: ROOM_COUNT }, (_, i) => {
-                      const nm = `${t.rooms.name} ${String(i + 1).padStart(2, '0')}`
-                      return <option key={nm} value={nm}>{nm}</option>
-                    })}
+                    {ROOMS.map((r) => <option key={r.name} value={r.name}>{r.name}</option>)}
                   </select>
                 </div>
               </div>
