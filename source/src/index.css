@@ -378,3 +378,7 @@ section { position: relative; }
   .arch img, .hero-star { animation: none; }
   .btn, .room, .tile img { transition-duration: 0.01ms; }
 }
+
+.btn[disabled] { opacity: 0.65; cursor: progress; }
+.btn[disabled]:active { transform: none; }
+.form { position: relative; }

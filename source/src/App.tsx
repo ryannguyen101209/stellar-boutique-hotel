@@ -5,6 +5,9 @@ import { COPY, type Lang } from './copy'
 const PHONE = '0916 607 555'
 const PHONE_HREF = 'tel:0916607555'
 const EMAIL = 'stellarhotel.signature@gmail.com'
+/* Web3Forms access key (public by design; delivers requests to the hotel inbox).
+   Leave empty to fall back to opening the guest's email app. */
+const WEB3FORMS_KEY = ''
 const FACEBOOK = 'https://www.facebook.com/hotelstellarboutique/'
 const ADDRESS_Q = encodeURIComponent('04-06 Nội Khu Hưng Gia 3, Tân Phong, Quận 7, Hồ Chí Minh')
 const MAP_SRC = `https://www.google.com/maps?q=${ADDRESS_Q}&z=16&output=embed`
@@ -109,6 +112,7 @@ export default function App() {
   const [guests, setGuests] = useState('2')
   const [room, setRoom] = useState('')
   const [breakfast, setBreakfast] = useState(true)
+  const [sending, setSending] = useState(false)
   const [errors, setErrors] = useState<Record<string, boolean>>({})
   const [status, setStatus] = useState<{ kind: 'ok' | 'err'; msg: string } | null>(null)
   const nameRef = useRef<HTMLInputElement>(null)
@@ -146,9 +150,11 @@ export default function App() {
 
   const askRoom = (name: string) => setRoom(name)
 
-  const submit = (e: FormEvent<HTMLFormElement>) => {
+  const submit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const f = new FormData(e.currentTarget)
+    if (sending) return
+    const formEl = e.currentTarget
+    const f = new FormData(formEl)
     const v = (k: string) => String(f.get(k) ?? '').trim()
     const bad: Record<string, boolean> = {
       name: !v('name'),
@@ -179,8 +185,48 @@ export default function App() {
       `${t.form.room}: ${roomLabel}`,
       `${t.form.note}: ${v('note') || '—'}`,
     ].join('\n')
-    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    setStatus({ kind: 'ok', msg: t.form.ok })
+    const openMail = (msg: string) => {
+      window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+      setStatus({ kind: 'ok', msg })
+    }
+    if (!WEB3FORMS_KEY) return openMail(t.form.ok)
+    if (v('botcheck')) return // honeypot: a person never fills this hidden field
+
+    setSending(true)
+    setStatus(null)
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject,
+          from_name: 'Stellar Signature Hotel website',
+          name: v('name'),
+          email: v('email'),
+          phone: v('phone'),
+          checkin,
+          checkout,
+          guests,
+          room: roomLabel,
+          note: v('note') || '—',
+          language: lang,
+        }),
+      })
+      const data = await res.json()
+      if (!res.ok || !data.success) throw new Error('send failed')
+      setStatus({ kind: 'ok', msg: t.form.sent })
+      formEl.reset()
+      setCheckin('')
+      setCheckout('')
+      setGuests('2')
+      setRoom('')
+      setErrors({})
+    } catch {
+      openMail(t.form.fallback)
+    } finally {
+      setSending(false)
+    }
   }
 
   const links: [string, string][] = [
@@ -428,8 +474,9 @@ export default function App() {
                 <label htmlFor="f-note">{t.form.note}</label>
                 <textarea id="f-note" name="note" placeholder={t.form.notePh} />
               </div>
-              <button type="submit" className="btn btn-dark btn-block">{t.form.send}</button>
-              <p className="form-note">{t.form.hint}</p>
+              <input type="text" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: 'absolute', left: '-9999px', height: 0, width: 0, opacity: 0 }} />
+              <button type="submit" className="btn btn-dark btn-block" disabled={sending}>{sending ? t.form.sending : t.form.send}</button>
+              <p className="form-note">{WEB3FORMS_KEY ? t.form.hintDirect : t.form.hint}</p>
               <div className={`status${status ? ` show ${status.kind}` : ''}`} role="status">{status?.msg}</div>
             </form>
           </div>
