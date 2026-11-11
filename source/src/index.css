@@ -319,7 +319,7 @@ section { position: relative; }
 /* footer */
 .footer { background: var(--olive-950); color: rgba(244, 238, 220, 0.7); padding: 80px 0 28px; }
 .foot-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(185, 154, 69, 0.22); }
-.foot-logo { width: min(340px, 100%); border: 1px solid rgba(185, 154, 69, 0.3); }
+.foot-logo { width: min(340px, 100%); height: auto; }
 .footer h4 { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-400); font-weight: 500; margin-bottom: 18px; }
 .footer li { margin-bottom: 10px; font-size: 14.5px; }
 @media (hover: hover) and (pointer: fine) { .footer a:hover { color: var(--gold-300); } }
