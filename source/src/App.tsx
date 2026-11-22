@@ -7,7 +7,7 @@ const PHONE_HREF = 'tel:0916607555'
 const EMAIL = 'stellarhotel.signature@gmail.com'
 /* Web3Forms access key (public by design; delivers requests to the hotel inbox).
    Leave empty to fall back to opening the guest's email app. */
-const WEB3FORMS_KEY = ''
+const WEB3FORMS_KEY = 'ce15c94e-f1de-4bc4-a4e4-cf6d6d2cf664'
 const FACEBOOK = 'https://www.facebook.com/hotelstellarboutique/'
 const ADDRESS_Q = encodeURIComponent('04-06 Nội Khu Hưng Gia 3, Tân Phong, Quận 7, Hồ Chí Minh')
 const MAP_SRC = `https://www.google.com/maps?q=${ADDRESS_Q}&z=16&output=embed`
