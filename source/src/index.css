@@ -253,11 +253,17 @@ section { position: relative; }
 @media (min-width: 1240px) { .rooms-track { padding-left: calc((100vw - var(--wrap)) / 2 + var(--gutter)); scroll-padding-left: calc((100vw - var(--wrap)) / 2 + var(--gutter)); } }
 .room { scroll-snap-align: start; background: var(--olive-900); border: 1px solid rgba(185, 154, 69, 0.22); display: flex; flex-direction: column; transition: border-color 220ms var(--ease-out), transform 260ms var(--ease-out); }
 @media (hover: hover) and (pointer: fine) { .room:hover { border-color: var(--gold-500); transform: translateY(-4px); } }
-.room-img { position: relative; aspect-ratio: 4 / 3; display: grid; place-items: center; background:
-  radial-gradient(80% 80% at 50% 40%, rgba(185, 154, 69, 0.16), transparent 70%), var(--olive-800); margin: 12px 12px 0; }
-.room-img svg { width: 54px; height: 54px; color: var(--gold-500); opacity: 0.55; }
-.room-img .ph-tag { position: absolute; bottom: 12px; left: 14px; }
-.room-no { position: absolute; top: 10px; left: 14px; font-family: var(--display); font-size: 15px; color: var(--gold-400); letter-spacing: 0.1em; }
+.room-img { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: var(--olive-800); margin: 12px 12px 0; }
+.room-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { .room:hover .room-img img { transform: scale(1.03); } }
+.room-img::after { content: ""; position: absolute; inset: 0 0 auto 0; height: 56px; background: linear-gradient(to bottom, rgba(18, 19, 10, 0.55), transparent); pointer-events: none; }
+.room-no { position: absolute; z-index: 1; top: 10px; left: 10px; padding: 1px 9px 2px; background: rgba(18, 19, 10, 0.72); font-family: var(--display); font-size: 16px; color: var(--gold-300); letter-spacing: 0.1em; }
+.inroom { margin-top: 56px; }
+.inroom::before { content: ""; display: block; height: 1px; background: rgba(185, 154, 69, 0.22); margin-bottom: 36px; }
+.inroom h3 { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-400); font-weight: 500; font-family: var(--body); }
+.inroom ul { margin-top: 22px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px 32px; }
+.inroom li { display: grid; grid-template-columns: 20px 1fr; gap: 12px; color: rgba(244, 238, 220, 0.82); font-size: 15px; }
+.inroom svg { width: 18px; height: 18px; color: var(--gold-400); margin-top: 4px; }
 .room-body { padding: 22px 24px 26px; display: flex; flex-direction: column; flex: 1; }
 .room-body h3 { font-family: var(--display); font-weight: 500; font-size: 28px; line-height: 1.1; color: var(--gold-300); }
 .room-spec { margin-top: 10px; font-size: 13.5px; color: rgba(244, 238, 220, 0.62); }

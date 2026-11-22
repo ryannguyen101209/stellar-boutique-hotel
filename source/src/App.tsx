@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react'
-import { facade, arches, columns, wordmark } from './assets'
+import { facade, arches, columns, wordmark, room1, room2, room3, room4 } from './assets'
 import { COPY, type Lang } from './copy'
 
 const PHONE = '0916 607 555'
@@ -15,10 +15,10 @@ const MAP_DIRECTIONS = `https://www.google.com/maps/dir/?api=1&destination=${ADD
 
 /* From the hotel's rate sheet, effective 01/11/2026, VAT included (VND per night). */
 const ROOMS = [
-  { name: 'Superior Room', size: 18, withBf: 710000, noBf: 650000 },
-  { name: 'Deluxe Room', size: 30, withBf: 810000, noBf: 750000 },
-  { name: 'Deluxe Executive', size: 30, withBf: 860000, noBf: 800000 },
-  { name: 'Twin Room', size: 30, withBf: 950000, noBf: 890000 },
+  { name: 'Superior Room', size: 18, withBf: 710000, noBf: 650000, img: room1 },
+  { name: 'Deluxe Room', size: 30, withBf: 810000, noBf: 750000, img: room2 },
+  { name: 'Deluxe Executive', size: 30, withBf: 860000, noBf: 800000, img: room3 },
+  { name: 'Twin Room', size: 30, withBf: 950000, noBf: 890000, img: room4 },
 ]
 const money = (n: number, lang: Lang) => (lang === 'vi' ? `${n.toLocaleString('vi-VN')} ₫` : `${n.toLocaleString('en-US')} VND`)
 
@@ -355,10 +355,9 @@ export default function App() {
               const name = r.name
               return (
                 <article key={n} className="room">
-                  <div className="room-img ph">
+                  <div className="room-img">
+                    <img src={r.img} alt={r.name} width={900} height={675} loading="lazy" />
                     <span className="room-no">{n}</span>
-                    <Star />
-                    <span className="ph-tag">{t.rooms.photo}</span>
                   </div>
                   <div className="room-body">
                     <h3>{name}</h3>
@@ -372,6 +371,10 @@ export default function App() {
                 </article>
               )
             })}
+          </div>
+          <div className="wrap inroom reveal">
+            <h3>{t.rooms.inRoomTitle}</h3>
+            <ul>{t.rooms.inRoom.map((x) => <li key={x}>{Icon.check}<span>{x}</span></li>)}</ul>
           </div>
         </section>
 
